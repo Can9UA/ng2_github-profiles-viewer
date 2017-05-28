@@ -1,12 +1,17 @@
 <header>
-  <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+  <nav class="navbar navbar-light bg-faded">
     <div class="container">
-
+      <form class="my-2 my-lg-0 justify-content-end w-100">
+        <input class="form-control mr-sm-2" type="text" placeholder="Enter Github user name"
+               [(ngModel)]="userName" name="userName"
+               (keyup)="searchUser()"
+        >
+      </form>
     </div>
   </nav>
 </header>
 <main>
   <div class="container">
-    <profile></profile>
+    <profile [user]="user" [repos]="repos"></profile>
   </div>
 </main>
