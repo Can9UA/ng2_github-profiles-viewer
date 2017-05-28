@@ -30,7 +30,7 @@
               <strong class="mr-1">Blog:</strong> {{user.blog || 'hidden info'}}
             </li>
             <li class="list-group-item">
-              <strong class="mr-1">Members Since:</strong> {{user.created_at || 'hidden info'}}
+              <strong class="mr-1">Members Since:</strong> {{user.created_at | date:'dd/MM/y' || 'hidden info'}}
             </li>
           </ul>
         </div>
