@@ -1,7 +1,13 @@
+<form class="my-2 my-lg-0 justify-content-end w-100">
+  <input class="form-control mr-sm-2" type="text" placeholder="Enter Github user name"
+         [(ngModel)]="userName" name="userName"
+         (keyup)="searchUser()"
+  >
+</form>
 <section *ngIf="user">
   <div class="card my-3">
     <div class="card-header">
-      <h4 class="card-title mb-0">{{user.name}} Profile (my own)</h4>
+      <h4 class="card-title mb-0">{{user.name}} Profile</h4>
     </div>
     <div class="card-block">
       <div class="row">
