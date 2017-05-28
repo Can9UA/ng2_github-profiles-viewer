@@ -7,12 +7,14 @@ import { GithubService } from '../../services/github.service';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
+  user: any[];
 
   constructor(private _githubService: GithubService) { }
 
   ngOnInit() {
     this._githubService.getUser()
       .subscribe(user => {
+        this.user = user;
         console.log(user);
       });
   }
