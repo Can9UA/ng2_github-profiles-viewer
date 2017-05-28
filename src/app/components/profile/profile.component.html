@@ -1,42 +1,62 @@
-<div class="card mt-3" *ngIf="user">
-  <div class="card-header">
-    <h4 class="card-title mb-0">{{user.name}}</h4>
-  </div>
-  <div class="card-block">
-    <div class="row">
-      <div class="col-xs-4 col-md-2">
-        <img class="card-img w-100 mb-2" [src]="user.avatar_url" [alt]="user.name">
-        <a href="{{user.html_url}}" class="btn btn-secondary btn-block" target="_blank">Go to Profile</a>
-      </div>
-      <div class="col-xs-8 col-md-10">
-        <div class="stats">
-          <span class="badge badge-default">{{user.public_repos}} Public Repos</span>
-          <span class="badge badge-primary">{{user.public_gists}} Gists Repos</span>
-          <span class="badge badge-success">{{user.followers}} Followers</span>
-          <span class="badge badge-info">{{user.following}} Following</span>
+<section *ngIf="user">
+  <div class="card my-3">
+    <div class="card-header">
+      <h4 class="card-title mb-0">{{user.name}} Profile (my own)</h4>
+    </div>
+    <div class="card-block">
+      <div class="row">
+        <div class="col-xs-5 col-md-3">
+          <img class="card-img w-100 mb-2" [src]="user.avatar_url" [alt]="user.name">
+          <a [href]="user.html_url" class="btn btn-secondary btn-block mb-2" target="_blank">Go to Profile</a>
         </div>
-        <ul class="list-group mt-2">
-          <li class="list-group-item">
-            <strong class="mr-1">Username:</strong> {{user.login || 'hidden info'}}
-          </li>
-          <li class="list-group-item">
-            <strong class="mr-1">Location:</strong> {{user.location || 'hidden info'}}
-          </li>
-          <li class="list-group-item">
-            <strong class="mr-1">Email:</strong> {{user.email || 'hidden info'}}
-          </li>
-          <li class="list-group-item">
-            <strong class="mr-1">Blog:</strong> {{user.blog || 'hidden info'}}
-          </li>
-          <li class="list-group-item">
-            <strong class="mr-1">Members Since:</strong> {{user.created_at || 'hidden info'}}
-          </li>
-        </ul>
+        <div class="col-xs-7 col-md-9">
+          <div class="stats">
+            <span class="badge badge-default">{{user.public_repos}} Public Repos</span>
+            <span class="badge badge-primary">{{user.public_gists}} Gists Repos</span>
+            <span class="badge badge-success">{{user.followers}} Followers</span>
+            <span class="badge badge-info">{{user.following}} Following</span>
+          </div>
+          <ul class="list-group mt-2">
+            <li class="list-group-item">
+              <strong class="mr-1">Username:</strong> {{user.login || 'hidden info'}}
+            </li>
+            <li class="list-group-item">
+              <strong class="mr-1">Location:</strong> {{user.location || 'hidden info'}}
+            </li>
+            <li class="list-group-item">
+              <strong class="mr-1">Email:</strong> {{user.email || 'hidden info'}}
+            </li>
+            <li class="list-group-item">
+              <strong class="mr-1">Blog:</strong> {{user.blog || 'hidden info'}}
+            </li>
+            <li class="list-group-item">
+              <strong class="mr-1">Members Since:</strong> {{user.created_at || 'hidden info'}}
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
-  <!--<div class="card-block">-->
-    <!--<a href="#" class="card-link">Card link</a>-->
-    <!--<a href="#" class="card-link">Another link</a>-->
-  <!--</div>-->
-</div>
+
+  <div class="card my-3" *ngIf="repos">
+    <div class="card-header">
+      <h4 class="card-title mb-0">User Repos</h4>
+    </div>
+    <div class="card-block">
+      <ul class="list-group mt-2">
+        <li class="list-group-item" *ngFor="let repo of repos">
+          <div class="row w-100">
+            <div class="col">
+              <h6 class="mb-md-0"><a [href]="repo.html_url" target="_blank">{{repo.name}}</a></h6>
+              <p *ngIf="repo.description" class="mb-md-0">{{repo.description}}</p>
+            </div>
+            <div class="col-md-4">
+              <span class="badge badge-default">{{repo.watchers_count}} Watcher</span>
+              <span class="badge badge-primary">{{repo.forks}} Forks</span>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
