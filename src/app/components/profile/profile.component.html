@@ -15,20 +15,28 @@
           <span class="badge badge-success">{{user.followers}} Followers</span>
           <span class="badge badge-info">{{user.following}} Following</span>
         </div>
-        <ul>
-
+        <ul class="list-group mt-2">
+          <li class="list-group-item">
+            <strong class="mr-1">Username:</strong> {{user.login || 'hidden info'}}
+          </li>
+          <li class="list-group-item">
+            <strong class="mr-1">Location:</strong> {{user.location || 'hidden info'}}
+          </li>
+          <li class="list-group-item">
+            <strong class="mr-1">Email:</strong> {{user.email || 'hidden info'}}
+          </li>
+          <li class="list-group-item">
+            <strong class="mr-1">Blog:</strong> {{user.blog || 'hidden info'}}
+          </li>
+          <li class="list-group-item">
+            <strong class="mr-1">Members Since:</strong> {{user.created_at || 'hidden info'}}
+          </li>
         </ul>
       </div>
     </div>
-    <!--<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>-->
   </div>
-  <!--<ul class="list-group list-group-flush">-->
-    <!--<li class="list-group-item">Cras justo odio</li>-->
-    <!--<li class="list-group-item">Dapibus ac facilisis in</li>-->
-    <!--<li class="list-group-item">Vestibulum at eros</li>-->
-  <!--</ul>-->
-  <div class="card-block">
-    <a href="#" class="card-link">Card link</a>
-    <a href="#" class="card-link">Another link</a>
-  </div>
+  <!--<div class="card-block">-->
+    <!--<a href="#" class="card-link">Card link</a>-->
+    <!--<a href="#" class="card-link">Another link</a>-->
+  <!--</div>-->
 </div>
